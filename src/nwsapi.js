@@ -72,7 +72,7 @@
   STD = {
     combinator: RegExp('\\s?([>+~])\\s?', 'g'),
     apimethods: RegExp('^(?:[a-z]+|\\*)\\|', 'i'),
-    namespaces: RegExp('^(?:[*][a-z]*)(?:[|][-a-z]+)', 'i')
+    namespaces: RegExp('^(?:[*|][_a-zA-Z0-9-]*)+', 'g')
   },
 
   GROUPS = {
@@ -658,7 +658,7 @@
           '(?:' + pseudoparms + '?)?|' +
           // universal * &
           // namespace *|*
-          '(?:[*|][_a-zA-Z0-9-]+)|' +
+          '(?:[*|]|[_a-zA-Z0-9-]+)|' +
           '(?:' +
             '(?::' + pseudonames +
               '(?:\\x28' + pseudoparms + '?(?:\\x29|$))?|' +
@@ -677,7 +677,7 @@
         '(?:' +
           // universal * &
           // namespace *|*
-          '(?:[*|]|[a-zA-Z0-9-]+)|' +
+          '(?:[*|]|[_a-zA-Z0-9-]+)|' +
           '(?:[.#]?' + identifier + ')+|' +
           '(?:' + attributes + ')+|' +
           '(?:::?' + pseudonames + pseudoclass + ')|' +
