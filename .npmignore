@@ -1,4 +1,5 @@
 /*
+*.log
 !dist/nwsapi.min.js
 !src/nwsapi.js
 !package.json
